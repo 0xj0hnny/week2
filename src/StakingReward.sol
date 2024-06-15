@@ -30,9 +30,14 @@ contract StakingReward is IERC721Receiver, Ownable2Step {
     event ClaimStakingReward(address indexed originalOwner, uint256 id, uint256 amount);
 
     constructor(RewardToken _rewardToken, IERC721 _nft) Ownable(msg.sender) {
+        transferOwnership(msg.sender);
+        acceptOwnership();
         rewardToken = _rewardToken;
         nft = _nft;
-        acceptOwnership();
+    }
+
+    function getStakeInfo(uint256 id) external view returns (Stake memory) {
+        return stakes[id];
     }
 
     function onERC721Received(

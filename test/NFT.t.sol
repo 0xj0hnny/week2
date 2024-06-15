@@ -1,5 +1,5 @@
 // SPDX-License-Identifier: UNLICENSED
-pragma solidity ^0.8.20;
+pragma solidity 0.8.20;
 
 import {Test, console} from "forge-std/Test.sol";
 import {NFT} from "../src/NFT.sol";
@@ -9,7 +9,6 @@ contract NFTTest is Test {
   address royaltyAddress = address(99);
   bytes32 merkleRoot = 0x897d6714686d83f84e94501e5d6f0f38c94b75381b88d1de3878b4f3d2d5014a;
   address Alice = address(1); // on onsale list
-  address Bob = address(9); // not on onsale list
 
   function setUp() public {
     nft = new NFT(royaltyAddress, merkleRoot);

@@ -7,11 +7,12 @@ import {ERC721} from "@openzeppelin/contracts/token/ERC721/ERC721.sol";
 import {Ownable2Step} from "@openzeppelin/contracts/access/Ownable2Step.sol";
 import {Ownable} from "@openzeppelin/contracts/access/Ownable.sol";
 
-contract NftCollection is ERC721Enumerable, Ownable2Step {
+contract NFTCollection is ERC721Enumerable, Ownable2Step {
   uint8 public constant MAX_SUPPLY = 100;
   uint8 private tokenIdCount = 1;
 
   constructor() ERC721("NFT Collection", "NFTC") Ownable(msg.sender) {
+    transferOwnership(msg.sender);
     acceptOwnership();
   }
 

@@ -7,6 +7,7 @@ import {Ownable} from "@openzeppelin/contracts/access/Ownable.sol";
 
 contract RewardToken is ERC20, Ownable2Step {
   constructor() ERC20("RewardToken", "RewardToken") Ownable(msg.sender) {
+    transferOwnership(msg.sender);
     acceptOwnership();
   }
 
